@@ -2,6 +2,8 @@ az configure --defaults location=centralus
 
 webappsuffix=$RANDOM
 
+az group create --name tailspin-space-gamerg --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b
+
 az appservice plan create \
     --name tailspin-space-game-asp \
     --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b \
