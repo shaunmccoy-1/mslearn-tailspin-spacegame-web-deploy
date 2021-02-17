@@ -1,8 +1,12 @@
 az configure --defaults location=centralus
-
+set location=centralus
+export subscription=35ea3019-0fd4-4b1a-802d-1b95fa17259b
+set subscription=35ea3019-0fd4-4b1a-802d-1b95fa17259b 
+export resourcegroupname=tailspin-space-game-rg
+set resourcegroupname=tailspin-space-game-rg
 webappsuffix=$RANDOM
 
-az group create --name tailspin-space-gamerg --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b
+az group create --name tailspin-space-game-rg --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b
 
 az appservice plan create \
     --name tailspin-space-game-asp \
@@ -24,7 +28,7 @@ az webapp create \
 
 az webapp create \
   --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b \
-  --name tailspin-space-game-web-staging-$webappsuffix \
+  --name tailspin-space-game-staging-$webappsuffix \
   --resource-group tailspin-space-game-rg \
   --plan tailspin-space-game-asp
 
@@ -34,8 +38,3 @@ az webapp list \
     --query "[].{hostName: defaultHostName, state: state}" \
     --output table
 
-HostName                                                 State
--------------------------------------------------------  -------
-tailspin-space-game-web-test-18528.azurewebsites.net     Running
-tailspin-space-game-web-staging-18528.azurewebsites.net  Running
-tailspin-space-game-web-dev-18528.azurewebsites.net      Running
