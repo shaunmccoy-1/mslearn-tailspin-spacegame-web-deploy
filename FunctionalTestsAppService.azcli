@@ -28,7 +28,7 @@ az webapp create \
 
 az webapp create \
   --subscription 35ea3019-0fd4-4b1a-802d-1b95fa17259b \
-  --name tailspin-space-game-staging-$webappsuffix \
+  --name tailspin-space-game-web-staging-$webappsuffix \
   --resource-group tailspin-space-game-rg \
   --plan tailspin-space-game-asp
 
